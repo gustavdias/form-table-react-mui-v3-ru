@@ -63,16 +63,21 @@ export default class InlineForm extends React.Component {
       userStatus: " ",
     };
 
-    const { phoneNumber, email } = this.state.values;
+    const { phoneNumber, email, password } = this.state.values;
 
-    if (phoneNumber.length < 5) {
+    if (password.length < 5) {
       isError = true;
-      errors.phoneNumber = "Username needs to be atleast 5 characters long";
+      errors.phoneNumber = "минимум 5 символов";
+    }
+
+    if (12 < phoneNumber.length < 9) {
+      isError = true;
+      errors.phoneNumber = "номер недействителен";
     }
 
     if (email.indexOf("@") === -1) {
       isError = true;
-      errors.email = "Requires valid email";
+      errors.email = "недействительна email";
     }
 
     this.setState({
@@ -91,7 +96,6 @@ export default class InlineForm extends React.Component {
     }
   };
 
-  //? JSX --------------------------
 
   render() {
     // const { header, x, i } = this.props;
@@ -104,7 +108,7 @@ export default class InlineForm extends React.Component {
             name={y.prop}
             onChange={this.change}
             value={this.state.values[y.prop]}
-            errorText={this.state.errors[y.prop]}
+            helperText={this.state.errors[y.prop]}
           />
         </TableCell>
       )),

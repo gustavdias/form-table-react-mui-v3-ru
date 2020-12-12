@@ -62,17 +62,17 @@ export default class Form extends React.Component {
 
     if (this.state.password.length < 5) {
       isError = true;
-      errors.usernameError = "password needs to be atleast 5 characters long";
+      errors.passwordError = "минимум 5 символов";
     }
 
-    // if (12 < this.state.phoneNumber.length < 9) {
-    //   isError = true;
-    //   errors.usernameError = "password needs to be atleast 5 characters long";
-    // }
+    if (12 < this.state.phoneNumber.length < 9) {
+      isError = true;
+      errors.phoneNumberError = "номер недействителен";
+    }
 
     if (this.state.email.indexOf("@") === -1) {
       isError = true;
-      errors.emailError = "Requires valid email";
+      errors.emailError = "недействительна email";
     }
 
     this.setState({
@@ -124,7 +124,7 @@ export default class Form extends React.Component {
             label="Фамилия"
             value={this.state.lastName}
             onChange={(e) => this.change(e)}
-            errorText={this.state.lastNameError}
+            helperText={this.state.lastNameError}
             floatingLabelFixed
           />
         </div>
@@ -136,7 +136,7 @@ export default class Form extends React.Component {
             label="Имя"
             value={this.state.firstName}
             onChange={(e) => this.change(e)}
-            errorText={this.state.firstNameError}
+            helperText={this.state.firstNameError}
             floatingLabelFixed
           />
         </div>
@@ -149,7 +149,7 @@ export default class Form extends React.Component {
             label="Отчество"
             value={this.state.patronymic}
             onChange={(e) => this.change(e)}
-            errorText={this.state.patronymicError}
+            helperText={this.state.patronymicError}
             floatingLabelFixed
           />
         </div>
@@ -161,8 +161,7 @@ export default class Form extends React.Component {
             label="электронный адрес"
             value={this.state.email}
             onChange={(e) => this.change(e)}
-            errorText={this.state.emailError}
-            floatingLabelFixed
+            helperText={this.state.emailError}
           />
         </div>
 
@@ -173,7 +172,7 @@ export default class Form extends React.Component {
             label="телефон"
             value={this.state.phoneNumber}
             onChange={(e) => this.change(e)}
-            errorText={this.state.phoneNumberError}
+            helperText={this.state.phoneNumberError}
             floatingLabelFixed
           />
         </div>
@@ -193,7 +192,7 @@ export default class Form extends React.Component {
             >
               <MenuItem value={"user"}>user</MenuItem>
               <MenuItem value={"admin"}>admin</MenuItem>
-              <MenuItem value={"userStatus"}>partner</MenuItem>
+              <MenuItem value={"partner"}>partner</MenuItem>
             </Select>
             <FormHelperText>выберите: user, admin or partner </FormHelperText>
           </FormControl>
@@ -218,7 +217,7 @@ export default class Form extends React.Component {
             label="пароль"
             value={this.state.password}
             onChange={(e) => this.change(e)}
-            errorText={this.state.passwordError}
+            helperText={this.state.passwordError}
             type="password"
             floatingLabelFixed
           />
@@ -229,15 +228,13 @@ export default class Form extends React.Component {
             label="Submit"
             onClick={(e) => this.onSubmit(e)}
             variant="contained"
-            color="primary"
+            color="secondary"
           >
             сохранить
           </Button>
         </div>
+        <br />
       </form>
     );
   }
 }
-
-// let dateOfCreation  = new Date()
-// dateOfCreationToString = dateOfCreation.toTimeString()
