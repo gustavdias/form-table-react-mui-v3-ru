@@ -7,11 +7,11 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 ReactDOM.render(
   <React.Fragment>
-
     <ThemeProvider theme={theme}>
-    <CssBaseline />
+      <CssBaseline />
 
       <App />
     </ThemeProvider>
-    </React.Fragment>,document.getElementById("root")
+  </React.Fragment>,
+  document.getElementById("root")
 );

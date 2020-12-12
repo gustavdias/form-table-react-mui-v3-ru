@@ -1,6 +1,9 @@
 import React from "react";
-import { TextField } from "@material-ui/core";
 import { Button } from "@material-ui/core";
+import { Select, MenuItem, TextField } from "@material-ui/core";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
 
 //Original State //Error is for validation
 export default class Form extends React.Component {
@@ -62,16 +65,10 @@ export default class Form extends React.Component {
       errors.usernameError = "password needs to be atleast 5 characters long";
     }
 
-
-    var n = 1234567890
-    if (isNaN(n) && 12 < n.length < 9){
-   console.log("true")}
-
-
-    if (isNaN(this.state.phoneNumber) && 12 < this.state.phoneNumber.length < 9) {
-      isError = true;
-      errors.usernameError = "password needs to be atleast 5 characters long";
-    }
+    // if (12 < this.state.phoneNumber.length < 9) {
+    //   isError = true;
+    //   errors.usernameError = "password needs to be atleast 5 characters long";
+    // }
 
     if (this.state.email.indexOf("@") === -1) {
       isError = true;
@@ -182,6 +179,27 @@ export default class Form extends React.Component {
         </div>
 
         <div>
+          <FormControl>
+            <InputLabel id="demo-simple-select-helper-label">
+              статус пользователя
+            </InputLabel>
+
+            <Select
+              name="userStatus"
+              value={this.state.userStatus}
+              onChange={(e) => this.setState({ userStatus: e.target.value })}
+              // onChange={(e) => this.change(e)}
+              // (e) => this.setState({ firstName: e.target.value })
+            >
+              <MenuItem value={"user"}>user</MenuItem>
+              <MenuItem value={"admin"}>admin</MenuItem>
+              <MenuItem value={"userStatus"}>partner</MenuItem>
+            </Select>
+            <FormHelperText>выберите: user, admin or partner </FormHelperText>
+          </FormControl>
+        </div>
+
+        {/* <div>
           <TextField
             name="userStatus"
             placeholder="статус пользователя"
@@ -191,7 +209,7 @@ export default class Form extends React.Component {
             errorText={this.state.userStatusError}
             floatingLabelFixed
           />
-        </div>
+        </div> */}
 
         <div>
           <TextField

@@ -27,7 +27,6 @@ export default class InlineForm extends React.Component {
   //! Handle change of fields in editing
 
   change = (e) => {
-    //?????
     // returns the month (from 0 to 11)
     var month = new Date().getMonth() + 1;
 
@@ -39,16 +38,13 @@ export default class InlineForm extends React.Component {
 
     // let dateOfCreation = new Date();
     let dateOfModificationToString = `${day}/${month}/${year}`;
-    //!!!!!!!!!
-
-    //?????
 
     const { name, value } = e.target;
     this.setState((state) => ({
       values: {
         ...state.values,
         [name]: value,
-        changed: dateOfModificationToString, //! last change!!!
+        changed: dateOfModificationToString, //! date of last change!!!
       },
     }));
   };

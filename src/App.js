@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import orderBy from "lodash/orderBy";
 import { Select, MenuItem, TextField } from "@material-ui/core";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
 
 import "./App.css";
 import Form from "./Form";
@@ -22,7 +25,7 @@ class App extends Component {
         lastName: "Смирнов",
         patronymic: "Сергеевч",
         userStatus: "user",
-        phoneNumber: "89237373492",
+        phoneNumber: "89237374561",
         email: "anton@outlook.com",
         passsword: "yJG2MuL5piY",
         created: "11/12/2020",
@@ -44,7 +47,7 @@ class App extends Component {
         lastName: "Ткачук",
         patronymic: "Павловна",
         userStatus: "partner",
-        phoneNumber: "89237373492",
+        phoneNumber: "89237372274",
         email: "sofia@about.me",
         passsword: "MWU9hc",
         created: "11/12/2020",
@@ -113,17 +116,25 @@ class App extends Component {
                 onChange={(e) => this.setState({ query: e.target.value })}
                 floatingLabelFixed
               />
-              <Select
-                style={{ marginLeft: "1em" }}
-                floatingLabelText="Select a column"
-                value={this.state.columnToQuery}
-                onChange={(event, index, value) =>
-                  this.setState({ columnToQuery: value })
-                }
-              >
-                <MenuItem value="email">электронный адрес</MenuItem>
-                <MenuItem value="phoneNumber">телефон</MenuItem>
-              </Select>
+
+              <FormControl>
+                <InputLabel id="demo-simple-select-helper-label"></InputLabel>
+
+                <Select
+                  name="searchBy"
+                  style={{ marginLeft: "1em" }}
+                  value={this.state.columnToQuery}
+                  //onChange={(event, index, value) =>
+                  onChange={(e) =>
+                    this.setState({ columnToQuery: e.target.value })
+                  }
+                >
+                  <MenuItem value="email">электронный адрес</MenuItem>
+                  <MenuItem value="phoneNumber">телефон</MenuItem>
+                </Select>
+
+                <FormHelperText>выберите: телефон / email</FormHelperText>
+              </FormControl>
             </div>
           </div>
           <Table
