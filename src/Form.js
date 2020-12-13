@@ -125,7 +125,7 @@ export default class Form extends React.Component {
             value={this.state.lastName}
             onChange={(e) => this.change(e)}
             helperText={this.state.lastNameError}
-            floatingLabelFixed
+            
           />
         </div>
         <div>
@@ -137,7 +137,6 @@ export default class Form extends React.Component {
             value={this.state.firstName}
             onChange={(e) => this.change(e)}
             helperText={this.state.firstNameError}
-            floatingLabelFixed
           />
         </div>
 
@@ -150,7 +149,7 @@ export default class Form extends React.Component {
             value={this.state.patronymic}
             onChange={(e) => this.change(e)}
             helperText={this.state.patronymicError}
-            floatingLabelFixed
+            
           />
         </div>
 
@@ -173,7 +172,7 @@ export default class Form extends React.Component {
             value={this.state.phoneNumber}
             onChange={(e) => this.change(e)}
             helperText={this.state.phoneNumberError}
-            floatingLabelFixed
+            
           />
         </div>
 
@@ -198,18 +197,6 @@ export default class Form extends React.Component {
           </FormControl>
         </div>
 
-        {/* <div>
-          <TextField
-            name="userStatus"
-            placeholder="статус пользователя"
-            label="статус пользователя"
-            value={this.state.userStatus}
-            onChange={(e) => this.change(e)}
-            errorText={this.state.userStatusError}
-            floatingLabelFixed
-          />
-        </div> */}
-
         <div>
           <TextField
             name="password"
@@ -219,7 +206,6 @@ export default class Form extends React.Component {
             onChange={(e) => this.change(e)}
             helperText={this.state.passwordError}
             type="password"
-            floatingLabelFixed
           />
         </div>
         <br />
@@ -228,7 +214,7 @@ export default class Form extends React.Component {
             label="Submit"
             onClick={(e) => this.onSubmit(e)}
             variant="contained"
-            color="secondary"
+            color="primary"
           >
             сохранить
           </Button>

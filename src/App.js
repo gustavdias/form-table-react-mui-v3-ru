@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { MuiThemeProvider } from "@material-ui/core/styles";
 import orderBy from "lodash/orderBy";
 import { Select, MenuItem, TextField } from "@material-ui/core";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
-
 
 import "./App.css";
 import Form from "./Form";
@@ -101,7 +99,6 @@ class App extends Component {
   render() {
     const lowerCaseQuery = this.state.query.toLowerCase();
     return (
-      <MuiThemeProvider>
         <div className="App">
           <Form
             onSubmit={(submission) =>
@@ -117,7 +114,6 @@ class App extends Component {
                 label="поиск"
                 value={this.state.query}
                 onChange={(e) => this.setState({ query: e.target.value })}
-                floatingLabelFixed
               />
               <FormControl>
                 <InputLabel id="demo-simple-select-helper-label"></InputLabel>
@@ -134,13 +130,12 @@ class App extends Component {
                   <MenuItem value="email">электронный адрес</MenuItem>
                   <MenuItem value="phoneNumber">телефон</MenuItem>
                   <MenuItem value="userStatus">статус</MenuItem>
-
                 </Select>
 
-                <FormHelperText>выберите: телефон / email / статус</FormHelperText>
+                <FormHelperText>
+                  выберите: телефон / email / статус
+                </FormHelperText>
               </FormControl>
-
-
             </div>
           </div>
           <Table
@@ -202,7 +197,6 @@ class App extends Component {
             ]}
           />
         </div>
-      </MuiThemeProvider>
     );
   }
 }

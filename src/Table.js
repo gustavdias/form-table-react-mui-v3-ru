@@ -25,7 +25,7 @@ const row = (
 ) => {
   const currentlyEditing = editIdx === i;
   return currentlyEditing ? (
-    <TableRow key={`inline-form-${i}`} selectable={false}>
+    <TableRow key={`inline-form-${i}`} >
       {/*! InlineForm */}
       <InlineForm
         handleSave={handleSave}
@@ -36,7 +36,7 @@ const row = (
       />
     </TableRow>
   ) : (
-    <TableRow key={`tr-${i}`} selectable={false}>
+    <TableRow key={`tr-${i}`} >
       {header.map((y, k) => (
         <TableCell key={`trc-${k}`}>{x[y.prop]}</TableCell>
       ))}
