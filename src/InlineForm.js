@@ -64,32 +64,11 @@ export default class InlineForm extends React.Component {
     };
 
 
-//!
-
-// const { phoneNumber, email, password } = this.state.values;
-
-// if (password.length < 5) {
-//   isError = true;
-//   errors.phoneNumber = "минимум 5 символов";
-// }
-
-// if (12 < phoneNumber.length < 9) {
-//   isError = true;
-//   errors.phoneNumber = "номер недействителен";
-// }
-
-// if (email.indexOf("@") === -1) {
-//   isError = true;
-//   errors.email = "недействительна email";
-// }
-
-
-//!
     const { phoneNumber, email } = this.state.values;
 
-    if (phoneNumber.length < 5) {
+    if (12 < phoneNumber.length < 9) {
       isError = true;
-      errors.phoneNumber = "минимум 5 символов";
+      errors.phoneNumber = "номер недействителен";
     }
 
     if (email.indexOf("@") === -1) {
