@@ -5,9 +5,7 @@ import { Select, MenuItem, TextField } from "@material-ui/core";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 
 import "./App.css";
 import Form from "./Form";
@@ -63,6 +61,8 @@ class App extends Component {
     sortDirection: "desc",
     query: "",
     columnToQuery: "phoneNumber",
+    filter: "",
+    userStatusFilter: "",
   };
 
   //! Handlers -----------------------------
@@ -133,59 +133,14 @@ class App extends Component {
                 >
                   <MenuItem value="email">электронный адрес</MenuItem>
                   <MenuItem value="phoneNumber">телефон</MenuItem>
+                  <MenuItem value="userStatus">статус</MenuItem>
+
                 </Select>
 
-                <FormHelperText>выберите: телефон / email</FormHelperText>
+                <FormHelperText>выберите: телефон / email / статус</FormHelperText>
               </FormControl>
 
 
-
-              <RadioGroup
-                aria-label="position"
-                name="position"
-                value={this.state.userStatusFilter}
-                onChange={(e) => this.setState({ userStatusFilter: e.target.value })}
-                row
-              >
-                <FormControlLabel
-                  value={"user"}
-                  control={<Radio color="primary" />}
-                  label="user"
-                  labelPlacement="start"
-                />
-                <FormControlLabel
-                  value={"admin"}
-                  control={<Radio color="primary" />}
-                  label="admin"
-                  labelPlacement="start"
-                />
-                <FormControlLabel
-                  value={"partner"}
-                  control={<Radio color="primary" />}
-                  label="partner"
-                  labelPlacement="start"
-                />
-
-              </RadioGroup>
-
-              {/* <FormControl>
-            <InputLabel id="demo-simple-select-helper-label">
-              статус пользователя
-            </InputLabel>
-
-            <Select
-              name="userStatus"
-              value={this.state.userStatus}
-              onChange={(e) => this.setState({ userStatus: e.target.value })}
-              // onChange={(e) => this.change(e)}
-              // (e) => this.setState({ firstName: e.target.value })
-            >
-              <MenuItem value={"user"}>user</MenuItem>
-              <MenuItem value={"admin"}>admin</MenuItem>
-              <MenuItem value={"partner"}>partner</MenuItem>
-            </Select>
-            <FormHelperText>выберите: user, admin or partner </FormHelperText>
-          </FormControl> */}
             </div>
           </div>
           <Table
